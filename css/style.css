@@ -57,7 +57,7 @@ h1 {
 }
 
 .address {
-    font-size 20px;
+    font-size: 20px;
     color: #dc143c;
     text-shadow: 5px 5px 5px black;
 }

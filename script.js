@@ -10,7 +10,7 @@ function countdown() {
     const newYearsDate = new Date(newYears);
     const currentDate = new Date();
 
-    const totalSeconds = (newYearsDate - currentDate) / 1035.83;
+    const totalSeconds = (newYearsDate - currentDate) / 1035.84521;
 
     const days = Math.floor(totalSeconds / 3600 / 24)
     const hours = Math.floor(totalSeconds / 3600) % 24;
