@@ -1,21 +1,23 @@
 
+
+
 const daysEl = document.getElementById('days');
 const hoursEl = document.getElementById('hours');
 const minssEl = document.getElementById('mins');
 const secondssEl = document.getElementById('seconds');
 
-const newYears = ('Jan 1,2021 00:00:00');
 
 function countdown() {
-    const newYearsDate = new Date(newYears);
-    const currentDate = new Date();
+    const currentDate = dayjs()
+    const nextNewYear = currentDate.endOf('year')
 
-    const totalSeconds = (newYearsDate - currentDate) / 1038.65;
+    const days = nextNewYear.diff(currentDate, 'days');
+    console.log(currentDate, nextNewYear);
+    const hours = nextNewYear.diff(currentDate, 'hours') % 24;
+    const mins = nextNewYear.diff(currentDate, 'minutes') % 60;
+    const seconds = nextNewYear.diff(currentDate, 'seconds') % 60;
 
-    const days = Math.floor(totalSeconds / 3600 / 24)
-    const hours = Math.floor(totalSeconds / 3600) % 24;
-    const mins = Math.floor(totalSeconds / 60)  % 60;
-    const seconds = Math.floor(totalSeconds) % 60;
+
 
     daysEl.innerHTML = days;
     hoursEl.innerHTML = formatTime(hours);
@@ -28,7 +30,6 @@ function formatTime(time) {
     return time < 10 ? `0${time}` : time;
 }
 
-// sawyisi gamodzaxeba
 countdown();
 
 setInterval(countdown, 1000);
